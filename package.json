@@ -1,0 +1,17 @@
+{
+  "name": "first-project",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "for learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "node-fetch": "^3.3.2",
+    "pdfkit": "^0.15.0"
+  }
+}
