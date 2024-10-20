@@ -3,7 +3,7 @@ import PDFDocument from "pdfkit";
 export function generatePDF(studentData) {
   return new Promise((resolve, reject) => {
     const doc = new PDFDocument({
-      margin: { top: 10, left: 50, right: 30, bottom: 30 }, // Adjusted margins
+      margin: { top: 10, left: 50, right: 30, bottom: 30 },
     });
     let buffers = [];
 
@@ -13,21 +13,17 @@ export function generatePDF(studentData) {
     let imagePath =
       "D:/Work Space/Programming/Back End/Node Js/project/images/output-onlinepngtools.png";
 
-    // Get the width of the page to center the image
     const pageWidth = doc.page.width;
     const imageWidth = 200; // Reduced image size
     const imageX = (pageWidth - imageWidth) / 2;
 
-    // Add the image at the top center
     doc.image(imagePath, imageX, 10, {
-      // Adjusted top position
       width: imageWidth,
     });
     doc.moveDown(1); // Reduced space after the image
 
-    // Add student details with colors
     doc
-      .fontSize(18) // Reduced font size
+      .fontSize(18)
       .fillColor("#1e5edf")
       .text("Student Details", { align: "center" });
     doc.moveDown(0.5);
@@ -45,7 +41,6 @@ export function generatePDF(studentData) {
     );
     doc.moveDown(0.5);
 
-    // Add subjects and marks with colors
     doc.fontSize(14).fillColor("#ff6e00").text("Subjects", { underline: true });
     doc.moveDown(0.5);
     const subjects = studentData["subjects"];
@@ -57,7 +52,6 @@ export function generatePDF(studentData) {
       doc.moveDown(0.5);
     });
 
-    // Add results with colors
     doc.fontSize(14).fillColor("#1e5edf").text("Results", { underline: true });
     doc.moveDown(0.5);
     doc
@@ -68,7 +62,6 @@ export function generatePDF(studentData) {
     doc.text(`Grade: ${studentData["results"].grade}`);
     doc.moveDown(0.5);
 
-    // Add parent details with colors
     doc
       .fontSize(14)
       .fillColor("#ff6e00")
@@ -85,7 +78,6 @@ export function generatePDF(studentData) {
     );
     doc.moveDown(0.5);
 
-    // Add emergency contact with colors
     doc
       .fontSize(14)
       .fillColor("#1e5edf")
@@ -99,7 +91,6 @@ export function generatePDF(studentData) {
       );
     doc.moveDown(0.5);
 
-    // Add enrollment status with colors
     doc
       .fontSize(14)
       .fillColor("#ff6e00")
@@ -110,7 +101,6 @@ export function generatePDF(studentData) {
       .fillColor("black")
       .text(`Status: ${studentData["enrollmentStatus"]}`);
 
-    // Finalize the PDF and end the stream
     doc.end();
   });
 }

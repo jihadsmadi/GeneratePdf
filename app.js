@@ -7,7 +7,6 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Use PDF routes
 app.use("/api", pdfRoutes);
 
 app.listen(port, () => {
