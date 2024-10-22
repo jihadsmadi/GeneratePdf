@@ -1,5 +1,6 @@
 import express from "express";
 import pdfRoutes from "./routes/pdfRoutes.js";
+import emailRoutes from "./routes/emailRoutes.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -8,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", pdfRoutes);
+app.use("/api", emailRoutes);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
