@@ -111,7 +111,7 @@ router.get("/send-email", async (req, res) => {
 
       try {
         await sendEmail(
-          "as3478989@gmail.com",
+          "musabalaqeede@gmail.com",
           "Congratulations on Your Results Hello World!",
           htmlContent,
           filePath,
